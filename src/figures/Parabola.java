@@ -27,6 +27,19 @@ public class Parabola {
                     return true;
                 }
             }
+
+            if (calculateDiscriminant() == 0 && calculateValue(x) >= 0) {
+                if(calculateValue(x) <= y){
+                    return true;
+                }
+            }
+
+            if(calculateDiscriminant() < 0 && calculateValue(x) > 0){
+                if(calculateValue(x) <= y){
+                    return true;
+                }
+            }
+
             return false;
         }else{
             if(calculateDiscriminant() > 0 && calculateValue(x) > 0){
@@ -34,6 +47,19 @@ public class Parabola {
                     return true;
                 }
             }
+
+            if(calculateDiscriminant() == 0 && calculateValue(x) <= 0){
+                if(calculateValue(x) >= y){
+                    return true;
+                }
+            }
+
+            if(calculateDiscriminant() < 0 && calculateValue(x) < 0){
+                if(calculateValue(x) >= y){
+                    return true;
+                }
+            }
+
             return false;
         }
     }
