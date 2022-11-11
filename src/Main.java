@@ -4,7 +4,7 @@ import figures.*;
 import java.util.Scanner;
 
 public class Main {
-    private static final Parabola P1 = new Parabola(1,0,-6);
+    private static final Parabola P1 = new Parabola(0,-6,1);
     private static final Rectangle R1 = new Rectangle(-6,5,4,-4);
     private static final Rectangle R2 = new Rectangle(1,9,8,0);
 
@@ -17,9 +17,25 @@ public class Main {
     }
 
     public static double input(String text){
+        tests();
+
         Scanner scanner = new Scanner(System.in);
         System.out.print(text);
         return scanner.nextDouble();
+    }
+
+    private static void tests(){
+        System.out.println(getColor(2,4).name()); //g
+        System.out.println(getColor(3,1).name()); //w
+        System.out.println(getColor(-2,1).name()); //g
+        System.out.println(getColor(2,8).name()); //g
+        System.out.println(getColor(7,8).name()); //b
+        System.out.println(getColor(3,-2).name()); //y
+        System.out.println(getColor(-5,1).name()); //o
+        System.out.println(getColor(0,-5).name()); //o
+        System.out.println(getColor(-3,6).name()); //w
+        System.out.println(getColor(-5,-6).name()); //g
+
     }
 
     private static SimpleColor getColor(double x, double y){

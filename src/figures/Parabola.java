@@ -1,66 +1,15 @@
 package figures;
-//парабола y = ax^2 + bx + c
+
 public class Parabola {
-    private double a,b,c;
+    private double x0,y0, a;
 
-    public Parabola(double a, double b, double c){
+    public Parabola(double x0, double y0, double a){
+        this.x0 = x0;
+        this.y0 = y0;
         this.a = a;
-        this.b = b;
-        this.c = c;
-    }
-
-    private double calculateDiscriminant(){
-        double result = Math.pow(b, 2) - 4*a*c;
-        return result;
-    }
-
-    private double calculateValue(double x0){
-        double result = a*Math.pow(x0, 2) + b*x0 + c;
-        return result;
     }
 
     public boolean isPointInsideOfParabola(double x, double y){
-
-        if(a > 0){
-            if(calculateDiscriminant() > 0 && calculateValue(x) < 0){
-                if(calculateValue(x) <= y){
-                    return true;
-                }
-            }
-
-            if (calculateDiscriminant() == 0 && calculateValue(x) >= 0) {
-                if(calculateValue(x) <= y){
-                    return true;
-                }
-            }
-
-            if(calculateDiscriminant() < 0 && calculateValue(x) > 0){
-                if(calculateValue(x) <= y){
-                    return true;
-                }
-            }
-
-            return false;
-        }else{
-            if(calculateDiscriminant() > 0 && calculateValue(x) > 0){
-                if(calculateValue(x) >= y){
-                    return true;
-                }
-            }
-
-            if(calculateDiscriminant() == 0 && calculateValue(x) <= 0){
-                if(calculateValue(x) >= y){
-                    return true;
-                }
-            }
-
-            if(calculateDiscriminant() < 0 && calculateValue(x) < 0){
-                if(calculateValue(x) >= y){
-                    return true;
-                }
-            }
-
-            return false;
-        }
+        return y >= a * Math.pow(x-x0, 2) + y0;
     }
 }
